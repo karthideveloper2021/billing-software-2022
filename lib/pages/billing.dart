@@ -1,6 +1,6 @@
-import 'package:billing/widget/billing_widget.dart';
+import 'package:billing/layout/billing_widget.dart';
+import 'package:billing/layout/search_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class BillingPage extends StatefulWidget {
   const BillingPage({Key? key}) : super(key: key);
@@ -63,7 +63,7 @@ class _BillingPageState extends State<BillingPage> {
                 SizedBox(
                   width: 10.0,
                 ),
-                searchCard(),
+                SearchCard(),
               ],
             ),
             SizedBox(
@@ -83,34 +83,4 @@ class _BillingPageState extends State<BillingPage> {
       ),
     );
   }
-
-  Widget tableFrame() {
-    return DataTable(
-      border: TableBorder.all(),
-      columns: tableHeaders(
-          ["S.NO", "ITEM NO", "ITEM NAME", "QUANTITY", "RATE", "PRICE"]),
-      rows: itemRow,
-    );
-  }
-
-  List<DataColumn> tableHeaders(List<String> headerNames) {
-    List<DataColumn> headerWidget = headerNames
-        .map(
-          (name) => DataColumn(
-              label: Text(
-            name,
-            style: const TextStyle(color: Colors.black, fontSize: 20.0),
-          )),
-        )
-        .toList();
-    return headerWidget;
-  }
-
-  void openTextField() {
-    setState(() {
-      // itemRow.add(DataRow(cells: []));
-    });
-  }
-
-  void addItemToList() {}
 }
